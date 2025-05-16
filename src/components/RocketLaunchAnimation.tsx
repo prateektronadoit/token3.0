@@ -55,17 +55,23 @@ export const RocketLaunchAnimation = ({ onAnimationComplete }: { onAnimationComp
                 justifyContent: 'center',
                 alignItems: 'center',
                 width: '100vw',
-                height: '100vh'
+                height: '100vh',
+                overflow: 'hidden'
               }}>
               <video
                 autoPlay
                 muted
                 playsInline
                 style={{
-                  height: '100%',
+                  minHeight: '100vh',
+                  minWidth: '100vw',
                   width: '100%',
-                  maxHeight: '100vh',
-                  objectFit: 'contain'
+                  height: '100%',
+                  objectFit: 'cover',
+                  position: 'absolute',
+                  left: '50%',
+                  top: '50%',
+                  transform: 'translate(-50%, -50%)'
                 }}
               >
                 <source src={rocketVideo} type="video/mp4" />

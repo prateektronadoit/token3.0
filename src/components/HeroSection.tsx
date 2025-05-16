@@ -9,28 +9,35 @@ const HeroSection = ({ className }: HeroSectionProps = {}) => {
 
   return (
     <section id="hero" className={cn(
-      "relative flex flex-col items-center justify-center min-h-[100vh] overflow-hidden bg-black",
+      "relative flex flex-col items-center justify-center min-h-[100vh] overflow-hidden",
       className
     )}>
-      {/* Main background Video */}
-      <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full"
-          style={{ 
-            opacity: 1,
-            objectFit: 'cover',
-            width: '100%',
-            height: '100%',
-            objectPosition: 'center center'
-          }}
+      {/* Main background Video - Fully Responsive */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="relative w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute w-full h-full md:w-auto md:min-w-full lg:min-w-full xl:min-w-full"
+            style={{ 
+              opacity: 1,
+              objectFit: 'contain',
+              position: 'absolute',
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '100%',
+              height: '100%',
+              maxHeight: '100vh',
+              maxWidth: '100vw'
+            }}
         >
           <source src={monlyBgVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        </div>
       </div>
       
       {/* Content container for any future content */}
